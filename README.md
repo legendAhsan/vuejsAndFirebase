@@ -1,4 +1,4 @@
-# fiverrclient
+# Resturant Registration
 
 ## Project setup
 ```
