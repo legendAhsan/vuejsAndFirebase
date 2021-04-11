@@ -78,7 +78,6 @@ router.beforeEach((to,from,next)=>{
   // // const isAuthenticated=firebase.auth().currentUser;
   // console.log('logged in',store.state.loggedIn);
   if(requiresAuth && store.state.loggedIn==false){
-    console.log(requiresAuth,store.state.loggedIn)
     next("/");
   }
   else if(requiresAuth && store.state.loggedIn==true && requiresAdmin && store.state.admin==false){

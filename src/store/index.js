@@ -63,9 +63,7 @@ export default new Vuex.Store({
       state.takeAway=val;
     },
     setEditWork(state,val){
-      console.log(val,state.editwork,'just enter');
       state.editwork=val;
-      console.log(val,state.editwork,'after set');
     },
     sethomeDelivery(state,val){
       

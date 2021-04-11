@@ -78,7 +78,6 @@ import db from "../firebaseConfig"
             this.email = this.$route.params.email;
             db.collection('ResturantData').where('email','==',this.email).get().then((querySnapshot)=>{
                 querySnapshot.forEach(doc => {
-                console.log(doc.data().password);
                 this.password = doc.data().password,
                 this.city=doc.data().city,
                 this.address1=doc.data().address1,

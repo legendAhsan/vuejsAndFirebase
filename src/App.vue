@@ -7,7 +7,6 @@
           
             <div class="col-md-12">
               <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center align-items-center">
-  
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -37,7 +36,7 @@
         <div v-else-if="Slog && Sadmin==false" id="nav">
           <nav class="navbar navbar-expand-lg navbar-light bg-light ">
   
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown1" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown1">

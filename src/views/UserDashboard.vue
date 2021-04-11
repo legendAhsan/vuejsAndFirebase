@@ -1,7 +1,10 @@
 <template>
 <div class="container">
     <div class="row mt-3 mb-3">
-      <div class="col-md-8" id="timing">Timing
+      <div class="col-md-8" id="timing" >
+        <strong>Timing</strong><br/>
+        <span v-if="alwaysAvailable==true">{{timing}}</span>
+        <span class="d-block" v-else v-for="time in timing" v-bind:key=time.day><strong>{{(time.day).toUpperCase()}}</strong> Start Time: {{time.stime}} End Time: {{time.etime}}</span>
       </div>
     </div>
       <div class="row">
@@ -45,22 +48,32 @@ import db from "../firebaseConfig"
         return {
           gettedItems:[],
           searchInput:'',
+          timing:[],
+          alwaysAvailable:false
         }
       },
-      async mounted(){
-        db.collection('ResturantData').where('em','==',store.state.currentUserEmail).get().then((query)=>{
-                if (query.empty) {
+      async created(){
+        db.collection('ResturantData').where('email','==',store.state.currentUserEmail).get().then((query)=>{
+                if(query.empty) {
                   console.log('No matching documents.');
                 }else{
+                  let dat=[]
                   query.forEach(doc => {
-                    document.getElementById('timing').innerHTML=doc.data().timing;
+                    this.alwaysAvailable=doc.data().alwaysavailable;
+                    if(this.alwaysAvailable==false){
+                      doc.data().timing.forEach(element => {
+                          dat.push({day:element.day,stime:element.key.start,etime:element.key.end})
+                      });
+                      this.timing=dat;
+                    }else{
+                        this.timing='Always Available'
+                    }
                   })
                 }
               })
             const snapshot = await db.collection('ResturantItems').where('email','==',store.state.currentUserEmail).get();
             if (snapshot.empty) {
               alert('This resturant has no registered item.')
-                console.log('No matching documents.');
                 return;
             }else{
               snapshot.forEach(doc => {
@@ -86,7 +99,6 @@ import db from "../firebaseConfig"
           $('#additem').modal('show');
           const snapshot = await db.collection('ResturantItems').doc(uid).get();
           if (snapshot.empty) {
-            console.log('No matching documents.');
             return;
           } 
             this.$store.commit('setitemName', snapshot.data().itemName);
