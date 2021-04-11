@@ -2,9 +2,12 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Login from '../views/Login.vue'
-import Register from '../views/Register.vue'
+// import Register from '../views/Register.vue'
 import UserDashboard from '../views/UserDashboard.vue'
 import Category from '../views/Category.vue'
+import EditResturant from '../views/EditResturant'
+import AddResturant from '../views/AddResturant'
+import ViewResturant from '../views/ViewResturant'
 // import firebase from "firebase/app";
 import "firebase/auth";
 import store from "../store";
@@ -18,14 +21,27 @@ const routes = [
     meta: {requiresAuth:true,requireAdmin:true}
   },
   {
+    path: "/admin/addresturant",
+    name: "AddResturant",
+    component: AddResturant,
+    meta: {requiresAuth:true,requireAdmin:true}
+  },
+  {
+    path: "/admin/editresturant/:email",
+    name: "EditResturant",
+    component: EditResturant,
+    meta: {requiresAuth:true,requireAdmin:true}
+  },
+  {
+    path: "/admin/viewresturant/:email",
+    name: "ViewResturant",
+    component: ViewResturant,
+    meta: {requiresAuth:true,requireAdmin:true}
+  },
+  {
     path: "/",
     name: "login",
     component: Login,
-  },
-  {
-    path: "/register",
-    name: "register",
-    component: Register,
   },
   {
     path: "/user/category",
