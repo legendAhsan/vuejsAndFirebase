@@ -19,15 +19,9 @@
 
 </template>
 <script>
-// import firebase from "firebase/app";
-// import "firebase/auth";
-import store from "../store/index"
+// import store from "../store/index"
 import db from "../firebaseConfig"
 export default{
-    created(){
-        console.log('admin ki value',store.state.admin);
-        console.log('loeeg in ki value',store.state.loggedIn);
-    },
     data() { 
         return { 
             email: '', 
@@ -37,8 +31,6 @@ export default{
     },
     methods: {
         async login(){
-            // firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-            // .then(() => {
             const snapshot = await db.collection('ResturantUsers').where('email','==',this.email).get();
             if (snapshot.empty) {
                 alert('Incorrect Email or Password');

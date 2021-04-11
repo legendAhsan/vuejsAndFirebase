@@ -249,7 +249,7 @@ import db from "../firebaseConfig"
         },
         methods:{
             async editResturant(){
-                if(this.email=='' || this.password=='' || this.timing=='' || this.selectcurrency=='' || this.city=='' || this.selectcountry=='' || this.address1=='' || this.address2=='' || this.website==''){
+                if(this.email=='' || this.password=='' || this.selectcurrency=='' || this.city=='' || this.selectcountry=='' || this.address1=='' || this.address2=='' || this.website==''){
                     alert('All fields are required');
                     return;
                 }

@@ -67,7 +67,6 @@ import db from "../firebaseConfig"
         
         const snapshot = await db.collection('ResturantCategories').where('categoryUser','==',store.state.currentUserEmail).get();
             if (snapshot.empty) {
-                console.log('No matching documents.');
                 return;
             }
             snapshot.forEach(doc => {
@@ -121,11 +120,13 @@ import db from "../firebaseConfig"
                         location.reload();
                     })
                 }else{
+                    console.log('ok hai ');
                     db.collection("ResturantCategories").add({ categoryUser:store.state.currentUserEmail,categoryName:store.state.categoryName, categoryDescription: store.state.categoryDescription})
                     .then(()=>{
                         console.log('category added sucessfully');
+                        location.reload();
                     })
-                    location.reload();
+                    
                 }
                 
             }

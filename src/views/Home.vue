@@ -1,6 +1,6 @@
 <template>
-  <div class="container mt-3" v-if="noth==true"><h4>No Resturant to show.</h4></div>
-  <div v-else class="home">
+  <!-- <div class="container mt-3" v-if="noth==true"><h4>No Resturant to show.</h4></div> -->
+  <div class="home">
 
     <!-- Search Bar code -->
     <div class="container">
