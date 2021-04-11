@@ -21,17 +21,17 @@
         <table class="table">
           <thead>
             <tr>
+              <th scope="col">Resturant Name</th>
               <th scope="col">Email</th>
               <th scope="col">Country</th>
-              <th scope="col">Timing</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody >
             <tr v-for="user in userData" v-bind:key="user.email">
+              <td>{{user.resturantname}}</td>
               <td>{{user.email}}</td>
               <td>{{user.country}}</td>
-              <td>{{user.resturantname}}</td>
               <td>
                  <router-link :to="{name:'ViewResturant',params:{email:user.email}}" >View<i class="far fa-eye"></i></router-link>
                 <!-- <button type="button" id='btnview' @click="viewResturant(user.email)" data-toggle="modal" data-target="#ViewResturant" class="btn btn-primary">View</button> -->
